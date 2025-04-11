@@ -358,35 +358,51 @@ ul {
 
 /* ======= Hero Section ======= */
 .hero-section {
-    background-color: #E6F0FA;
-    padding: 80px 0;
+    background: linear-gradient(to bottom right, #E6F0FA, #F6FAFE); /* [✓] Subtle background gradient for depth */
+    padding: 64px 24px; /* [✓] Balanced padding (py-16 px-6) */
     position: relative;
     overflow: hidden;
 }
 
-.hero-section .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-}
-
-@media (min-width: 1024px) {
-    .hero-section .container {
-        padding: 0 112px;
+@media (min-width: 640px) {
+    .hero-section {
+        padding: 80px 40px; /* [✓] Increased padding on sm (py-20 px-10) */
     }
 }
 
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 64px 96px; /* [✓] Adjusted for large screens (px-24) */
+    }
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: flex-start; /* [✓] Align items to start for better visual alignment */
+    justify-content: space-between;
+}
+
 .hero-content {
-    flex: 0 0 50%;
-    padding-right: var(--spacing-lg);
+    flex: 0 0 100%;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* [✓] Consistent gap between content blocks (gap-6) */
+    text-align: left; /* [✓] Left align all content */
+    max-width: 600px; /* [✓] Control maximum width of content */
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        flex: 0 0 55%;
+    }
 }
 
 .hero-content h1 {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0; /* [✓] Remove margin, using gap instead */
     color: #1a202c;
     font-size: 2.25rem;
-    line-height: 1.2;
+    line-height: 1.15; /* [✓] Tighter line height (leading-tight) */
 }
 
 @media (min-width: 768px) {
@@ -404,8 +420,8 @@ ul {
 .hero-subtitle {
     font-size: 1rem;
     line-height: 1.625;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-dark);
+    margin: 8px 0 0 0; /* [✓] Small margin top only (mt-2) */
+    color: #4a5568; /* [✓] text-gray-700 equivalent */
 }
 
 @media (min-width: 768px) {
@@ -415,16 +431,17 @@ ul {
 }
 
 .hero-cta {
-    margin-bottom: var(--spacing-md);
+    margin: 24px 0 0 0; /* [✓] Proper top margin (mt-6) */
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    flex-direction: column; /* [✓] Stack buttons on mobile */
+    gap: 16px; /* [✓] Proper gap between buttons (gap-4) */
+    align-items: flex-start; /* [✓] Align buttons to the left */
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
     .hero-cta {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: row; /* [✓] Horizontal on larger screens */
+        gap: 24px; /* [✓] Increased gap on larger screens (gap-6) */
     }
 }
 
@@ -433,6 +450,10 @@ ul {
     min-width: 220px;
     text-align: center;
     transition: all 0.3s ease;
+    padding: 10px 24px; /* [✓] Reduced vertical padding (py-2.5 px-6) */
+    font-size: 1rem; /* [✓] Base font size (text-base) */
+    font-weight: 600; /* [✓] Semi-bold (font-semibold) */
+    margin-right: 0; /* [✓] Remove margin, using gap instead */
 }
 
 .hero-cta .primary-button:hover,
@@ -448,76 +469,89 @@ ul {
 
 .hero-section .secondary-button {
     background-color: var(--text-light);
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    color: #dd6b20; /* [✓] text-orange-600 equivalent */
+    border: 1px solid #ed8936; /* [✓] border-orange-500 equivalent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .hero-section .secondary-button:hover, 
 .hero-section .secondary-button:focus {
     background-color: rgba(255, 119, 0, 0.05);
-    border-color: var(--secondary-color);
-    color: var(--secondary-color);
+    border-color: #ed8936;
+    color: #dd6b20;
     text-decoration: none;
+}
+
+.hero-section .secondary-button::before {
+    content: "📞"; /* [✓] Phone icon for emergency button */
+    font-size: 1rem;
 }
 
 .trust-indicators {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    justify-content: flex-start; /* [✓] Align with left edge of content */
+    gap: 12px; /* [✓] gap-3 equivalent */
+    margin-top: 16px; /* [✓] pt-4 equivalent */
 }
 
 .trust-badge {
     background-color: var(--text-light);
-    color: #4a5568;
+    color: #4a5568; /* [✓] text-gray-600 equivalent */
     font-weight: 600;
-    font-size: 0.875rem;
-    padding: 0.25rem 1rem;
+    font-size: 0.875rem; /* [✓] text-sm equivalent */
+    padding: 6px 12px; /* [✓] py-1.5 px-3 equivalent */
     border-radius: 50px;
-    margin-right: 0;
-    margin-bottom: 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    display: flex;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* [✓] shadow-sm equivalent */
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
-.trust-badge:before {
-    content: "✓";
+.trust-badge:nth-child(1):before {
+    content: "✓"; /* [✓] Checkmark icon */
+    color: var(--secondary-color);
+}
+
+.trust-badge:nth-child(2):before {
+    content: "🛡️"; /* [✓] Shield icon */
+    color: var(--secondary-color);
+}
+
+.trust-badge:nth-child(3):before {
+    content: "🏆"; /* [✓] Award icon */
     color: var(--secondary-color);
 }
 
 .hero-image {
     flex: 0 0 45%;
     position: relative;
+    display: none; /* [✓] Hidden on mobile (hidden) */
+}
+
+@media (min-width: 640px) {
+    .hero-image {
+        display: block; /* [✓] Show on larger screens (sm:block) */
+        max-width: 320px; /* [✓] Reduced size for better balance */
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-image {
+        max-width: 380px; /* [✓] Slightly larger on medium screens */
+    }
 }
 
 .hero-img {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     object-fit: contain;
-    height: 300px;
-    margin-left: auto;
-    margin-right: 40px;
-}
-
-@media (max-width: 768px) {
-    .hero-image {
-        display: none;
-    }
-    
-    .hero-content {
-        flex: 0 0 100%;
-        text-align: center;
-        padding-right: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .hero-image {
-        display: block;
-    }
+    width: 100%;
+    height: auto;
+    margin-left: auto; /* [✓] Push to right edge (ml-auto) */
 }
 
 /* ======= Services Section ======= */
