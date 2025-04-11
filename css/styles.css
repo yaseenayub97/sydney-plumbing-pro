@@ -388,6 +388,25 @@ ul {
 
 .hero-cta {
     margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.hero-section .secondary-button {
+    background-color: #e66a00;
+    color: var(--text-light);
+    border: 2px solid #e66a00;
+}
+
+.hero-section .secondary-button:hover, 
+.hero-section .secondary-button:focus {
+    background-color: #ff7700;
+    border-color: #ff7700;
+    color: var(--text-light);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .trust-indicators {
